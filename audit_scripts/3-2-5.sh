@@ -8,4 +8,8 @@
  fi
  done < <(readlink -e /usr/lib/modules/**/kernel/$l_mod_type \
  || readlink -e /lib/modules/**/kernel/$l_mod_type)
+ 
+ lsmod | grep "^$l_mod_name\b"
+ 
+ modprobe --showconfig | grep -P -- "\b(install|blacklist)\h+$l_mod_name\b"
 }
