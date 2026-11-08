@@ -18,12 +18,10 @@
  done < <("$l_systemdsysctl" --cat-config | tac | \
  grep -Psio -- '^\h*#\h*\/[^#\n\r\h]+\.conf\b')
  for l_file in "${a_files[@]}"; do
- l_opt="$(grep -Psio '^\h*'"$l_grep"'\h*=\h*\H+\b' "$l_file" | tail -n
-1)"
+ l_opt="$(grep -Psio '^\h*'"$l_grep"'\h*=\h*\H+\b' "$l_file" | tail -n 1)"
  l_option_value="$(cut -d= -f2 <<< "$l_opt" | xargs)"
  [ -n "$l_option_value" ] && \
- a_output+=(" - \"$l_parameter_name = $l_option_value\" is set in:
-\"$l_file\"")
+ a_output+=(" - \"$l_parameter_name = $l_option_value\" is set in: \"$l_file\"")
  done
  [ "${#a_output[@]}" -gt "0" ] && printf '%s\n' "" "${a_output[@]}" ""
 }
