@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 {
- sysctl net.ipv4.conf.all.secure_redirect
+ sysctl net.ipv4.conf.all.secure_redirects
  
  l_parameter_name="net.ipv4.conf.all.secure_redirects"
  l_grep="${l_parameter_name//./(\\.|\\/)}" a_output=() a_files=()
