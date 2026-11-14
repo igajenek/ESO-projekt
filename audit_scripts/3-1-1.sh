@@ -8,4 +8,10 @@
  fi
  [ -z "$l_output" ] && l_output="- IPv6 is enabled"
  echo -e "\n$l_output\n"
+ 
+ if [ "$l_output" = "- IPv6 is enabled" ]; then
+    exit 0
+ else
+    exit 1
+ fi
 }
