@@ -78,7 +78,7 @@ audyt jak i hardening zautomatyzowałam dla kilku modułów, o których znalazł
 2. nadać plikowi uprawnienia, np. `chmod +x nazwa_skryptu.sh`
 3. uruchomić skrypt jako root (niektóre zalecenia wymagają tego, aby zadziałać), np. `sudo ./nazwa_skryptu.sh`
 
-#### Aby przeprowadzić audyt wszystkich zaleceń, których dotyczy ten projekt, należy:
+#### Aby przeprowadzić hardening wszystkich zaleceń, których dotyczy ten projekt, należy:
 
 1. nadać plikowi uprawnienia, `chmod +x run_hardening_scripts.sh`
 2. uruchomić skrypt jako root (niektóre zalecenia wymagają tego, aby zadziałać), np. `sudo ./run_hardening_scripts.sh`
