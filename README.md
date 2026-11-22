@@ -9,13 +9,44 @@ Na podstawie: CIS Ubuntu Linux 26.04 LTS Benchmark (v1.0.0 - 08-26-2026)
 ### Lista zaleceń
 Większosć zaleceń z sekcji **3 Network**:
 
-**3.1 Configure Network Devices** (1 zalecenie dla level 1 workstation)
+**3.1 Configure Network Devices**
+- 3.1.1 Ensure IPv6 status is identified
 
-**3.2 Configure Network Kernel Modules** (7 zaleceń dla level 1 workstation)
+**3.2 Configure Network Kernel Modules**
+- 3.2.1 Ensure atm kernel module is not available 
+- 3.2.2 Ensure can kernel module is not available 
+- 3.2.3 Ensure dccp kernel module is not available 
+- 3.2.4 Ensure rds kernel module is not available 
+- 3.2.5 Ensure sctp kernel module is not available 
+- 3.2.6 Ensure tipc kernel module is not available 
+- 3.2.7 Ensure unneeded network protocol kernel modules are not available 
 
-**3.3.1 Configure IPv4 parameters** (19 zaleceń dla level 1 workstation)
+**3.3.1 Configure IPv4 parameters**
+- 3.3.1.1 Ensure net.ipv4.ip_forward is configured 
+- 3.3.1.2 Ensure net.ipv4.conf.all.forwarding is configured 
+- 3.3.1.3 Ensure net.ipv4.conf.default.forwarding is configured 
+- 3.3.1.4 Ensure net.ipv4.conf.all.send_redirects is configured 
+- 3.3.1.5 Ensure net.ipv4.conf.default.send_redirects is configured 
+- 3.3.1.6 Ensure net.ipv4.icmp_ignore_bogus_error_responses is configured 
+- 3.3.1.7 Ensure net.ipv4.icmp_echo_ignore_broadcasts is configured 
+- 3.3.1.8 Ensure net.ipv4.conf.all.accept_redirects is configured 
+-  3.3.1.9 Ensure net.ipv4.conf.default.accept_redirects is configured 
+-  3.3.1.10 Ensure net.ipv4.conf.all.secure_redirects is configured
+- 3.3.1.11 Ensure net.ipv4.conf.default.secure_redirects is configured 
+-  3.3.1.12 Ensure net.ipv4.conf.all.rp_filter is configured
+- 3.3.1.13 Ensure net.ipv4.conf.default.rp_filter is configured 
+- 3.3.1.14 Ensure net.ipv4.conf.all.accept_source_route is configured
+- 3.3.1.15 Ensure net.ipv4.conf.default.accept_source_route is configured
+-  3.3.1.16 Ensure net.ipv4.conf.all.log_martians is configured
+- 3.3.1.17 Ensure net.ipv4.conf.default.log_martians is configured 
+- 3.3.1.18 Ensure net.ipv4.tcp_syncookies is configured
+-  3.3.1.19 Ensure net.ipv4.conf.all.route_localnet is configured 
     
-i sekcja **4 Host Based Firewall** (4 zaleceń dla level 1 workstation)
+i sekcja **4 Host Based Firewall**
+- 4.1.1 Ensure ufw is installed
+- 4.1.2 Ensure ufw service is configured 
+- 4.1.3 Ensure ufw incoming default is configured 
+- 4.1.5 Ensure ufw routed default is configured
 
 ### Na co pozwalają skrypty?
 Zautomatyzowany audyt i hardening w/w zaleceń
