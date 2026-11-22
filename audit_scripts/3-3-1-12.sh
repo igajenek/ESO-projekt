@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 {
+ current_val=$(sysctl -n net.ipv4.conf.all.rp_filter 2>/dev/null)
+ file_value=""
  sysctl net.ipv4.conf.all.rp_filter
  
  l_parameter_name="net.ipv4.conf.all.rp_filter"
@@ -19,8 +21,18 @@
  for l_file in "${a_files[@]}"; do
  l_opt="$(grep -Psio '^\h*'"$l_grep"'\h*=\h*\H+\b' "$l_file" | tail -n 1)"
  l_option_value="$(cut -d= -f2 <<< "$l_opt" | xargs)"
- [ -n "$l_option_value" ] && \
- a_output+=(" - \"$l_parameter_name = $l_option_value\" is set in: \"$l_file\"")
+if [ -n "$l_option_value" ]; then
+   a_output+=(" - \"$l_parameter_name = $l_option_value\" is set in: \"$l_file\"")
+   [ -z "$file_value" ] && file_value="$l_option_value"
+ fi
  done
  [ "${#a_output[@]}" -gt "0" ] && printf '%s\n' "" "${a_output[@]}" ""
+ 
+ if [ "$current_val" = "1" ] && [ "$file_value" = "1" ]; then
+    exit 0
+ elif [ "$current_val" = "1" ] || [ "$file_value" = "1" ]; then
+    exit 2
+ else
+    exit 1
+ fi
 }

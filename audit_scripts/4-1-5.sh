@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
 {
- ufw status verbose | awk '/^Default:/{print}' | grep -w routed
-}
+output=$(ufw status verbose | awk '/^Default:/{print}' | grep -w routed)
+
+echo "$output"
+
+if [ -n "$output" ]; then
+    if echo "$output" | grep -qE "routed \((disabled|drop|reject)\)"; then
+        exit 0
+    else
+        exit 2
+    fi
+else
+    exit 1
+fi}
