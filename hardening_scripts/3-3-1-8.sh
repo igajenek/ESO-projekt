@@ -17,7 +17,7 @@
  for l_file in "${a_files[@]}"; do
  grep -Psio -- '\h*'"$l_grep"'\h*=\h*\H+\b' "$l_file" \
  | grep -Psivq -- '^\h*'"$l_grep"'\h*=\h*'"$l_value"'\b' && \
- sed -ri '/^\s*'"$l_grep"'\s*=\s*(1[0-9]*)/s/^/# /' "$l_file"
+ sed -ri '/^\s*'"$l_grep"'\s*=\s*(s[0-9]*)/s/^/# /' "$l_file"
  done
  
 [ ! -d "/etc/sysctl.d/" ] && mkdir -p /etc/sysctl.d/
