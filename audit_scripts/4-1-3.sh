@@ -6,11 +6,9 @@
 
  echo "$result"
 
- if echo "$result" | grep -qE "Default:.*incoming \((deny|reject)\)"; then
-     exit 0
- elif echo "$result" | grep -q "Default:"; then
-     exit 2
- else
-     exit 1
- fi
+if echo "$output" | grep -qE "deny.*\(incoming\)|\(incoming\).*deny"; then
+    exit 0
+else
+    exit 2
+fi
 }

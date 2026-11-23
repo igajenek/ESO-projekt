@@ -5,7 +5,7 @@
  echo "$output"
 
  if [ -n "$output" ]; then
-     if echo "$output" | grep -qE "routed \((disabled|drop|reject)\)"; then
+     if echo "$output" | grep -qE "(disabled|drop|reject|deny) \(routed\)"; then
          exit 0
      else
          exit 2
